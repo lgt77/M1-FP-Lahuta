@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Decrypt {
-    public Decrypt() {
-    }
 
     public String decrypt(String input, int key) {
         if (key % 26 ==0) {
