@@ -10,28 +10,38 @@ public class Encrypt {
             key = 7 ;
         }
         key = (key % 26) * -1;
-        System.out.println( key);
 
-        ArrayList<Character> rotateAlphabet = new ArrayList<>(Alphabet.ABC.getAlphabet());
+        ArrayList<Character> rotateAlphabet = new ArrayList<>(ConstantsForCipher.ALPHABET.getCharsArrayConstants());
         Collections.rotate(rotateAlphabet, key);
+        ArrayList<Character> rotatePunctuation= new ArrayList<>(ConstantsForCipher.PUNCTUATION.getCharsArrayConstants());
+        Collections.rotate(rotatePunctuation, key);
+
         char[] charsArray = input.toCharArray();
 
         StringBuilder sb = new StringBuilder();
         for(char symbol : charsArray) {
-            sb.append(this.symbolsBelongingAlphabet(symbol, rotateAlphabet));
+            if (ConstantsForCipher.ALPHABET.getCharsArrayConstants().contains(Character.toUpperCase(symbol))){
+                sb.append(symbolsBelongingABC(symbol, rotateAlphabet));
+            } else if (ConstantsForCipher.PUNCTUATION.getCharsArrayConstants().contains(symbol)) {
+                sb.append(symbolsBelongingPUNCTUATION(symbol, rotatePunctuation));
+            }else {
+                sb.append(symbol);
+            }
         }
 
         return sb.toString();
     }
 
-    protected Character symbolsBelongingAlphabet(char symbol, ArrayList<Character> rotateAlphabet) {
-        if (!Alphabet.ABC.getAlphabet().contains(Character.toUpperCase(symbol))) {
-            return symbol;
-        }
-        int index = Alphabet.ABC.getAlphabet().indexOf(Character.toUpperCase(symbol));
+    protected Character symbolsBelongingABC(char symbol, ArrayList<Character> rotateAlphabet) {
+        int index = ConstantsForCipher.ALPHABET.getCharsArrayConstants().indexOf(Character.toUpperCase(symbol));
         if(Character.isLowerCase(symbol)){
             return  Character.toLowerCase(rotateAlphabet.get(index));
         }
         return rotateAlphabet.get(index);
+    }
+
+    protected Character symbolsBelongingPUNCTUATION(char symbol, ArrayList<Character> rotatePunctuation){
+        int index = ConstantsForCipher.PUNCTUATION.getCharsArrayConstants().indexOf(symbol);
+        return rotatePunctuation.get(index);
     }
 }
