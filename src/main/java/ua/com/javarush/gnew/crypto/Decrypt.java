@@ -11,17 +11,24 @@ public class Decrypt {
         }
         key = (key % 26);
 
-        ArrayList<Character> rotateAlphabet = new ArrayList(Alphabet.ABC.getAlphabet());
+        ArrayList<Character> rotateAlphabet = new ArrayList<>(ConstantsForCipher.ALPHABET.getCharsArrayConstants());
         Collections.rotate(rotateAlphabet, key);
+        ArrayList<Character> rotatePunctuation = new ArrayList<>(ConstantsForCipher.PUNCTUATION.getCharsArrayConstants());
+        Collections.rotate(rotatePunctuation, key);
 
         char[] charsArray = input.toCharArray();
 
         StringBuilder sb = new StringBuilder();
         Encrypt enc = new Encrypt();
         for(char symbol : charsArray) {
-            sb.append(enc.symbolsBelongingAlphabet(symbol, rotateAlphabet));
+            if(ConstantsForCipher.ALPHABET.getCharsArrayConstants().contains(Character.toUpperCase(symbol))){
+                sb.append(enc.symbolsBelongingABC(symbol, rotateAlphabet));
+            } else if (ConstantsForCipher.PUNCTUATION.getCharsArrayConstants().contains(symbol)) {
+                sb.append(enc.symbolsBelongingPUNCTUATION(symbol, rotatePunctuation));
+            }else {
+                sb.append(symbol);
+            }
         }
         return sb.toString();
     }
-
 }
