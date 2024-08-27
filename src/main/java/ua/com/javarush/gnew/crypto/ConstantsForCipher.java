@@ -3,22 +3,20 @@ package ua.com.javarush.gnew.crypto;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public enum Alphabet {
-    ABC (new ArrayList<>(Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+public enum ConstantsForCipher {
+    ALPHABET(new ArrayList<>(Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
             'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
             'X', 'Y', 'Z'))),
     PUNCTUATION (new ArrayList<>(Arrays.asList('.', ',', '!', '?', ':', ';', '-',
             '(', ')', '[', ']', '{', '}','#', ' ', '@', '*', '+', '=', '_', '&',
             '\\', '/', '₴', '~', '`')));
 
-    private final ArrayList<Character> charsAlphabet;
+    private final ArrayList<Character> CharsArrayConstants;
 
-    Alphabet(ArrayList<Character> charsAlphabet) {
-        this.charsAlphabet = charsAlphabet;
+    ConstantsForCipher(ArrayList<Character> CharsArrayConstants) {
+        this.CharsArrayConstants = CharsArrayConstants;
     }
-
-    public ArrayList<Character> getAlphabet() {
-        return this.charsAlphabet;
+        public ArrayList<Character> getCharsArrayConstants() {
+        return this.CharsArrayConstants;
     }
-
 }
