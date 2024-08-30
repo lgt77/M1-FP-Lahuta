@@ -5,11 +5,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class FileManager {
-    public String read(Path filePath) throws IOException {
-        return Files.readString(filePath);
+    public String read(Path filePath)  {
+      try {
+          return Files.readString(filePath);
+      }catch (IOException e){
+          throw new RuntimeException("File path not found." + e);
+      }
     }
 
     public void write(Path filePath, String content) throws IOException {
-        Files.writeString(filePath, content);
+      try {
+          Files.writeString(filePath, content);
+      }catch (IOException e) {
+          throw new IOException("The file cloud not be saved " + e);
+      }
     }
 }
