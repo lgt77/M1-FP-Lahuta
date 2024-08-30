@@ -3,7 +3,7 @@ package ua.com.javarush.gnew.crypto;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Decrypt {
+public class Decrypt  {
 
     public String decrypt(String input, int key) {
         if (key % 26 ==0) {
@@ -19,12 +19,12 @@ public class Decrypt {
         char[] charsArray = input.toCharArray();
 
         StringBuilder sb = new StringBuilder();
-        Encrypt enc = new Encrypt();
+        SymbolsBelonging symBel = new SymbolsBelonging();
         for(char symbol : charsArray) {
             if(ConstantsForCipher.ALPHABET.getCharsArrayConstants().contains(Character.toUpperCase(symbol))){
-                sb.append(enc.symbolsBelongingABC(symbol, rotateAlphabet));
+                sb.append(symBel.symbolsBelongingABC(symbol, rotateAlphabet));
             } else if (ConstantsForCipher.PUNCTUATION.getCharsArrayConstants().contains(symbol)) {
-                sb.append(enc.symbolsBelongingPUNCTUATION(symbol, rotatePunctuation));
+                sb.append(symBel.symbolsBelongingPUNCTUATION(symbol, rotatePunctuation));
             }else {
                 sb.append(symbol);
             }

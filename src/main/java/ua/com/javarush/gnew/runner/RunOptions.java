@@ -7,7 +7,7 @@ public class RunOptions {
      * Command to be executed.
      * -e option for encryption.
      * -d option for decryption.
-     * -b option for brute force.
+     * -bf option for brute force.
      */
     private final Command command;
 
