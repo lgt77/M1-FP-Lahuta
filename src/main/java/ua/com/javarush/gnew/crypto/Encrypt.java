@@ -1,29 +1,20 @@
 package ua.com.javarush.gnew.crypto;
 
-import java.util.ArrayList;
-import java.util.Collections;
+public class Encrypt extends Cipher {
 
-public class Encrypt {
+    Cipher cipher = new Cipher();
 
-    public String encrypt(String input, int key) {
-        if (key % 26 ==0) {
-            key = 7 ;
-        }
-        key = (key % 26) * -1;
 
-        ArrayList<Character> rotateAlphabet = new ArrayList<>(ConstantsForCipher.ALPHABET.getCharsArrayConstants());
-        Collections.rotate(rotateAlphabet, key);
-        ArrayList<Character> rotatePunctuation= new ArrayList<>(ConstantsForCipher.PUNCTUATION.getCharsArrayConstants());
-        Collections.rotate(rotatePunctuation, key);
+    public String encrypt() {
 
-        char[] charsArray = input.toCharArray();
 
         StringBuilder sb = new StringBuilder();
-        for(char symbol : charsArray) {
+        SymbolsBelonging symBel = new SymbolsBelonging();
+        for(char symbol : cipher.getInputChars()) {
             if (ConstantsForCipher.ALPHABET.getCharsArrayConstants().contains(Character.toUpperCase(symbol))){
-                sb.append(symbolsBelongingABC(symbol, rotateAlphabet));
+                sb.append(symBel.symbolsBelongingABC(symbol, cipher.getRotateAlphabet()));
             } else if (ConstantsForCipher.PUNCTUATION.getCharsArrayConstants().contains(symbol)) {
-                sb.append(symbolsBelongingPUNCTUATION(symbol, rotatePunctuation));
+                sb.append(symBel.symbolsBelongingPUNCTUATION(symbol, cipher.getRotatePunctuation()));
             }else {
                 sb.append(symbol);
             }
@@ -32,16 +23,4 @@ public class Encrypt {
         return sb.toString();
     }
 
-    protected Character symbolsBelongingABC(char symbol, ArrayList<Character> rotateAlphabet) {
-        int index = ConstantsForCipher.ALPHABET.getCharsArrayConstants().indexOf(Character.toUpperCase(symbol));
-        if(Character.isLowerCase(symbol)){
-            return  Character.toLowerCase(rotateAlphabet.get(index));
-        }
-        return rotateAlphabet.get(index);
-    }
-
-    protected Character symbolsBelongingPUNCTUATION(char symbol, ArrayList<Character> rotatePunctuation){
-        int index = ConstantsForCipher.PUNCTUATION.getCharsArrayConstants().indexOf(symbol);
-        return rotatePunctuation.get(index);
-    }
 }
