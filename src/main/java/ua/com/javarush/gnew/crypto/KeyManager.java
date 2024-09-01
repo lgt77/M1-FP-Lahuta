@@ -5,8 +5,8 @@ import ua.com.javarush.gnew.runner.Command;
 
 
 public class KeyManager {
-   private Integer key;
-    public Integer key(RunOptions runOptions){
+   private int key;
+    public int key(RunOptions runOptions){
         if (runOptions.getCommand() == Command.ENCRYPT && runOptions.getKey() >0) {
             key = (runOptions.getKey() % 26) * -1;
             return key;
