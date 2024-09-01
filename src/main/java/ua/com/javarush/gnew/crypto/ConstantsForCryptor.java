@@ -3,7 +3,7 @@ package ua.com.javarush.gnew.crypto;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public enum ConstantsForCipher {
+public enum ConstantsForCryptor {
     ALPHABET(new ArrayList<>(Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
             'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
             'X', 'Y', 'Z'))),
@@ -13,10 +13,10 @@ public enum ConstantsForCipher {
 
     private final ArrayList<Character> CharsArrayConstants;
 
-    ConstantsForCipher(ArrayList<Character> CharsArrayConstants) {
+    ConstantsForCryptor(ArrayList<Character> CharsArrayConstants) {
         this.CharsArrayConstants = CharsArrayConstants;
     }
-        public ArrayList<Character> getCharsArrayConstants() {
+    public ArrayList<Character> getCharsArrayConstants() {
         return this.CharsArrayConstants;
     }
 }
