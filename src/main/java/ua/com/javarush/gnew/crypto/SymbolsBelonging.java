@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SymbolsBelonging {
     protected Character symbolsBelongingABC(char symbol, ArrayList<Character> rotateAlphabet) {
-        int index = ConstantsForCryptor.ALPHABET.getCharsArrayConstants().indexOf(Character.toUpperCase(symbol));
+        int index = ConstantsForCryptor.ALPHABET.getcharsArrayConstant().indexOf(Character.toUpperCase(symbol));
         if(Character.isLowerCase(symbol)){
             return  Character.toLowerCase(rotateAlphabet.get(index));
         }
@@ -12,7 +12,7 @@ public class SymbolsBelonging {
     }
 
     protected Character symbolsBelongingPUNCTUATION(char symbol, ArrayList<Character> rotatePunctuation){
-        int index = ConstantsForCryptor.PUNCTUATION.getCharsArrayConstants().indexOf(symbol);
+        int index = ConstantsForCryptor.PUNCTUATION.getcharsArrayConstant().indexOf(symbol);
         return rotatePunctuation.get(index);
     }
 }

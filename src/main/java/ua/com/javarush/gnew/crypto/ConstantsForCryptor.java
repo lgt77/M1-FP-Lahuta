@@ -11,12 +11,12 @@ public enum ConstantsForCryptor {
             '(', ')', '[', ']', '{', '}','#', ' ', '@', '*', '+', '=', '_', '&',
             '\\', '/', '₴', '~', '`')));
 
-    private final ArrayList<Character> CharsArrayConstants;
+    private final ArrayList<Character> CHARS_ARRAY_CONSTANT;
 
-    ConstantsForCryptor(ArrayList<Character> CharsArrayConstants) {
-        this.CharsArrayConstants = CharsArrayConstants;
+    ConstantsForCryptor(ArrayList<Character> CHARS_ARRAY_CONSTANS) {
+        this.CHARS_ARRAY_CONSTANT = CHARS_ARRAY_CONSTANS;
     }
-    public ArrayList<Character> getCharsArrayConstants() {
-        return this.CharsArrayConstants;
+    public ArrayList<Character> getCharsArrayConstant() {
+        return this.CHARS_ARRAY_CONSTANT;
     }
 }

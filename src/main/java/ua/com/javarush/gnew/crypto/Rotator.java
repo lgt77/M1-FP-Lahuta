@@ -5,16 +5,16 @@ import java.util.Collections;
 
 public class Rotator {
 
-    public ArrayList<Character> rotateAlphabet(int key){
+    protected ArrayList<Character> rotateAlphabet(int key){
 
 
-        ArrayList<Character> rotateAlphabet = new ArrayList<>(ConstantsForCryptor.ALPHABET.getCharsArrayConstants());
+        ArrayList<Character> rotateAlphabet = new ArrayList<>(ConstantsForCryptor.ALPHABET.getcharsArrayConstant());
         Collections.rotate(rotateAlphabet, key);
         return rotateAlphabet;
     }
 
-    public ArrayList<Character> rotatePunctuation(Integer key){
-        ArrayList<Character> rotatePunctuation = new ArrayList<>(ConstantsForCryptor.PUNCTUATION.getCharsArrayConstants());
+    protected ArrayList<Character> rotatePunctuation(Integer key){
+        ArrayList<Character> rotatePunctuation = new ArrayList<>(ConstantsForCryptor.PUNCTUATION.getcharsArrayConstant());
         Collections.rotate(rotatePunctuation, key);
         return rotatePunctuation;
     }
