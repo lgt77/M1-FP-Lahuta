@@ -11,8 +11,8 @@ public class KeyManager {
             key = (runOptions.getKey() % 26) * -1;
             return key;
         }else if (runOptions.getCommand() == Command.DECRYPT && runOptions.getKey() != 0) {
-            key = (runOptions.getKey() % 26) * -1;
-            return key;
+            return  (runOptions.getKey() % 26);
+
         }else {
             key =7;
             return runOptions.getCommand() == Command.ENCRYPT ? -key : key;

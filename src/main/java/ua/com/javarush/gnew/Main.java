@@ -3,12 +3,9 @@ package ua.com.javarush.gnew;
 import ua.com.javarush.gnew.crypto.Cryptor;
 import ua.com.javarush.gnew.crypto.KeyManager;
 import ua.com.javarush.gnew.file.FileManager;
-import ua.com.javarush.gnew.file.FileNameTag;
 import ua.com.javarush.gnew.file.NewFileNamePath;
 import ua.com.javarush.gnew.runner.ArgumentsParser;
 import ua.com.javarush.gnew.runner.RunOptions;
-
-import java.nio.file.Path;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,7 +20,7 @@ public class Main {
             int key = keyManager.key(runOptions);
             String cryptoContent = cryptor.cypher(content, key);
             NewFileNamePath path = new NewFileNamePath();
-            fileManager.write(path.path(runOptions) , cryptoContent);
+            fileManager.write(path.newPath(runOptions) , cryptoContent);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
