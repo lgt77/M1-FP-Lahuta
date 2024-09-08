@@ -1,5 +1,6 @@
 package ua.com.javarush.gnew.file;
 
+import ua.com.javarush.gnew.crypto.KeyManager;
 import ua.com.javarush.gnew.runner.Command;
 import ua.com.javarush.gnew.runner.RunOptions;
 
@@ -19,7 +20,8 @@ public class FileNameTag {
                 tag.append("[DECRYPTED]");
             } else if (runOptions.getCommand() == Command.BRUTEFORCE) {
                 tag.append("[DECRYPTED] [WITH KEY ");
-                tag.append(runOptions.getKey()); // дописать правильно откуда взять ключ после bruteforce
+                KeyManager keyManager = new KeyManager();
+                tag.append(keyManager.key(runOptions));
                 tag.append("]");
             }
             return tag.toString();
