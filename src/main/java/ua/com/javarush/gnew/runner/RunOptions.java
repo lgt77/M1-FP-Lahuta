@@ -27,7 +27,12 @@ public class RunOptions {
 
     public RunOptions(Command command, Integer key, Path filePath) {
         this.command = command;
-        this.key = key;
+        if( key != null){
+            this.key = key;
+        }else {
+            this.key = 0;
+        }
+
         this.filePath = filePath;
     }
 
