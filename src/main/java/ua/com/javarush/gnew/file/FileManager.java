@@ -10,7 +10,7 @@ public class FileManager {
         try {
             content = Files.readString(filePath);
         } catch (IOException e) {
-            System.err.println("Ошибка при чтении файла: " + e.getMessage());
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return content;
     }
@@ -19,7 +19,7 @@ public class FileManager {
         try {
             Files.writeString(filePath, content);
         } catch (IOException e) {
-            System.err.println("Ошибка при записи в файл: " + e.getMessage());
+            System.out.println("Ошибка при записи в файл: " + e.getMessage());
         }
     }
 }
