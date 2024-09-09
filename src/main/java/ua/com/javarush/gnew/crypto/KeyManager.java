@@ -19,7 +19,7 @@ public class KeyManager {
         }
     }
 
-    public int keySelection(RunOptions runOptions) {
+    private int keySelection(RunOptions runOptions) {
         FileManager fileManager = new FileManager();
         String input =fileManager.read(runOptions.getFilePath());
         Cryptor cryptor = new Cryptor(input);

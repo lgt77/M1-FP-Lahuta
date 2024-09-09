@@ -25,7 +25,7 @@ public class Main {
                 NewFileNamePath path = new NewFileNamePath();
                 fileManager.write(path.newPath(runOptions) , cryptoContent);
             } else if (runOptions.getCommand() == Command.BRUTEFORCE) {
-                cryptor = new Cryptor(content, keyManager.keySelection(runOptions));
+                cryptor = new Cryptor(content, keyManager.getKey(runOptions));
                 String cryptoContent = cryptor.cypher();
                 NewFileNamePath path = new NewFileNamePath();
                 fileManager.write(path.newPath(runOptions) , cryptoContent);
