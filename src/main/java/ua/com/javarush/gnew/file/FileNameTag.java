@@ -21,7 +21,7 @@ public class FileNameTag {
             } else if (runOptions.getCommand() == Command.BRUTEFORCE) {
                 tag.append("[DECRYPTED] [WITH KEY ");
                 KeyManager keyManager = new KeyManager();
-                tag.append(keyManager.key(runOptions));
+                tag.append(keyManager.getKey(runOptions));
                 tag.append("]");
             }
             return tag.toString();

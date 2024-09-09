@@ -19,7 +19,7 @@ public class Main {
             String content = fileManager.read(runOptions.getFilePath());
             Cryptor cryptor;
             if(runOptions.getCommand() == Command.ENCRYPT || runOptions.getCommand() == Command.DECRYPT){
-                int key = keyManager.key(runOptions);
+                int key = keyManager.getKey(runOptions);
                 cryptor = new Cryptor(content, key);
                 String cryptoContent = cryptor.cypher();
                 NewFileNamePath path = new NewFileNamePath();

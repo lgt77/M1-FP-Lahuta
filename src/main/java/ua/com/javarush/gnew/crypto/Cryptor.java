@@ -4,13 +4,13 @@ package ua.com.javarush.gnew.crypto;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cryptor {
+public class Cryptor  {
 
-    private String input;
+    private String input ;
     private int key;
 
     public Cryptor(String input, int key){
-        this.input = input;
+        this.input =input ;
         this.key = key;
     }
 

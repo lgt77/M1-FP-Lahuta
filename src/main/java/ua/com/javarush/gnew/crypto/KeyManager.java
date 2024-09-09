@@ -7,10 +7,10 @@ import ua.com.javarush.gnew.runner.Command;
 
 public class KeyManager {
 
-    public int key(RunOptions runOptions){
-        if (runOptions.getCommand() == Command.ENCRYPT && runOptions.getKey() !=0) {
+    public int getKey(RunOptions runOptions){
+        if (runOptions.getCommand() == Command.ENCRYPT) {
             return (runOptions.getKey() % 26) * -1;
-        }else if (runOptions.getCommand() == Command.DECRYPT && runOptions.getKey() != 0) {
+        }else if (runOptions.getCommand() == Command.DECRYPT) {
             return  runOptions.getKey() % 26;
         } else if (runOptions.getCommand() == Command.BRUTEFORCE) {
             return keySelection(runOptions);
