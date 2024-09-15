@@ -7,7 +7,7 @@ import ua.com.javarush.gnew.runner.RunOptions;
 public class FileNameTag {
 
         protected String fileNameNotExtension(RunOptions runOptions){
-           String fileName = runOptions.getFilePath().getFileName().toString();
+           String fileName = runOptions.getFilePath().toString();
            int lastDotIndex = fileName.lastIndexOf('.');
            return fileName.substring(0, lastDotIndex);
         }
@@ -19,7 +19,7 @@ public class FileNameTag {
             } else if (runOptions.getCommand() == Command.DECRYPT) {
                 tag.append("[DECRYPTED]");
             } else if (runOptions.getCommand() == Command.BRUTEFORCE) {
-                tag.append("[DECRYPTED] [WITH KEY ");
+                tag.append("[BRUTEFORCE] [WITH KEY ");
                 KeyManager keyManager = new KeyManager();
                 tag.append(keyManager.getKey(runOptions));
                 tag.append("]");
